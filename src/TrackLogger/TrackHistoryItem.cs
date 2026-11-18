@@ -5,10 +5,10 @@ internal sealed record TrackHistoryItem(long? TrackId, string? Artist, string? T
     public Track? ToTrack()
     {
         if (Type is not "track")
-        return null;
+            return null;
 
         if (TrackId is not { } id || string.IsNullOrWhiteSpace(Artist) || string.IsNullOrWhiteSpace(Title))
-        return null;
+            return null;
 
         return new Track(id, Artist.Trim(), Title.Trim());
     }
